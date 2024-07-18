@@ -15,6 +15,10 @@ class PaymentRouterServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton(PaymentRouter::class, function ($app) {
+            return new PaymentRouter();
+        });
+
         $this->commands([
             InitCommand::class,
             GenerateEnvCommand::class,
